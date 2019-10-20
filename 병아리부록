@@ -1,0 +1,31 @@
+# input 함수 쓰는 법
+
+a = int(input('?'))
+print(a-4)
+
+
+# and / or 쓰는 법
+
+a = 3
+
+if a >0 or a == 4 :
+    print("x")
+
+
+#import : 내장 함수가 아닌 다른 함수를 쓰고 싶을 때 라이브러리를 불러오는 함수
+
+import random
+
+dice = random.randint(1,6)
+print(dice)
+
+# for문 : i에 임시로 하나씩 가져다가 값을 대입한 뒤에 명령문을 실행하라.
+
+for i in [0,1,2,3] :
+    print(i ** 3)
+
+#range()
+
+for i in range(1,10,2) :
+    print(i)
+
