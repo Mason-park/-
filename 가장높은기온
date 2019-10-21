@@ -1,0 +1,64 @@
+# 가장 높은 기온
+
+import csv
+f = open('seoul_2000.csv', encoding='cp949')
+data = csv.reader(f)      # [ ] 리스트 단위로 읽어온다고 보면 됨 
+
+header = next(f)
+print(header)
+
+max_temp = -999
+max_date = ''             # 변수를 가장 기본적인 값으로 디폴트 설정
+
+for row in data :         # 이 line 의 개념을 잘 이해하는 것이 가장 중요
+  if row[4] == '' :
+    row[4] = -999
+  row[4] = float(row[4])
+  
+  if row[4] > max_temp :
+    max_temp = row[4]
+    max_date = row[0]
+
+f.close
+
+print(max_date, max_temp)
+
+
+# 가장 낮은 & 가장 높은 기온
+
+import csv
+f = open('seoul_2000.csv', encoding='cp949')
+data = csv.reader(f)
+
+header = next(data)
+print(header)
+
+max_temp = 20
+max_date = ''
+
+min_temp = 10
+min_date = ''
+
+for row in data : 
+  if row[3] == '' :
+    row[3] = 15
+  if row[4] == '' :
+    row[4] = 15
+  
+  row[3] = float(row[3])
+  row[4] = float(row[4])
+
+  if row[3] < min_temp :
+    min_temp = row[3]
+    min_date = row[0]
+  if row[4] > max_temp : 
+    max_temp = row[4]
+    max_date = row[0]
+
+f.close()
+
+print(min_date, min_temp)
+print(max_date, max_temp)
+
+
+# 최근 3년 & 10월 등 기준 추가 
