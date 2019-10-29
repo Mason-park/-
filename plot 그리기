@@ -1,0 +1,21 @@
+
+import csv
+import matplotlib.pyplot as plt
+
+f = open('seoul_2000.csv')
+data = csv.reader(f)
+
+header = next(data)
+print(header)
+
+temp = []
+
+for i in data :
+    if i[-1] != '' :
+        temp.append(float(i[-1]))   #[] 리스트에 숫자 집어 넣는 개념! 반복시키면서 같지 않으면 다 집어넣어라.
+
+print(temp)
+print(len(temp))
+
+plt.plot(temp, color='red', label='temporary')
+plt.show()
