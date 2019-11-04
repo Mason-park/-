@@ -1,0 +1,81 @@
+# 책안보고 혼자 한 버전
+
+import csv
+import matplotlib.pyplot as plt
+
+f = open('seoul_2000.csv')
+data = csv.reader(f)
+
+header = next(data)
+print(header)
+
+x = []
+result = []
+
+for i in data :
+    date = i[0]
+    a = date.split('-')
+    if int(a[1]) == 1 and int(a[2]) == 7 :
+        result.append(float(i[-1]))
+        x.append(i[0])
+
+plt.figure(figsize=(20,5))
+plt.plot(x, result, 'blue')
+plt.show()
+
+
+
+# 책보고 아이디어 얻은 것 
+import csv
+import matplotlib.pyplot as plt
+
+f = open('seoul_2000.csv')
+data = csv.reader(f)
+
+header = next(data)
+print(header)
+
+x = []
+y = []
+
+for i in data :
+    if float(i[0].split('-')[1]) == 1 and float(i[0].split('-')[2]) == 7 :
+        x.append(i[0])
+        y.append(float(i[-1]))
+
+print(x)
+print(y)
+
+plt.figure(figsize=(20,5))
+plt.plot(x,y)
+plt.show()
+
+
+# 2005년 이후, 내 생일의 최저기온 최고기온 그래프
+
+import csv
+import matplotlib.pyplot as plt
+
+f = open('seoul_2000.csv')
+data = csv.reader(f)
+
+header = next(data)
+print(header)
+
+x = []
+y = []
+z = []
+
+for i in data:
+    if float(i[0].split('-')[0]) > 2004 :
+        if float(i[0].split('-')[1]) == 1 and float(i[0].split('-')[2]) == 7 :
+            x.append(i[0])
+            y.append(float(i[-2]))
+            z.append(float(i[-1]))
+
+plt.figure(figsize=(20,5))
+plt.plot(x,y,'blue', label= 'min_temp')
+plt.plot(x,z,'red', label='max_temp')
+plt.show()
+
+
